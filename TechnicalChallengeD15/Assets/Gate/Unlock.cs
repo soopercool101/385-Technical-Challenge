@@ -6,7 +6,8 @@ public class Unlock : StateMachineBehaviour {
 
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        animator.GetComponentInParent<Transform>().localScale = new Vector3(0, 0, 0);
+        animator.GetComponentInParent<PolygonCollider2D>().enabled = false;
+        animator.GetComponentInParent<SpriteRenderer>().enabled = false;
 	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
