@@ -22,6 +22,9 @@ public class Move : Physics2DObject
 	private float moveHorizontal;
 	private float moveVertical;
 
+	// To limit max speed of character
+	private float maxVelocity = 75f;
+
 
 	// Update gets called every frame
 	void Update ()
@@ -69,7 +72,10 @@ public class Move : Physics2DObject
 	// FixedUpdate is called every frame when the physics are calculated
 	void FixedUpdate ()
 	{
-		// Apply the force to the Rigidbody2d
-		rigidbody2D.AddForce(movement * speed * 10f);
+		if (rigidbody2D.velocity.sqrMagnitude < maxVelocity) 
+		{
+			// Apply the force to the Rigidbody2d
+			rigidbody2D.AddForce(movement * speed * 10f);
+		}
 	}
 }
