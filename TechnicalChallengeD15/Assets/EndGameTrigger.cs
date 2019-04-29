@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EndGameTrigger : MonoBehaviour {
-    GameObject endgame;
+    public GameObject endgame;
 
 	void OnTriggerEnter2D (Collider2D col) {
         if (col.gameObject.tag == "Player")

@@ -5,20 +5,13 @@ using UnityEngine;
 public class KeyScript : MonoBehaviour {
 
     public GameObject gate;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    void OnTriggerEnter2D(Collision2D collision)
+    
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
+        {
             gate.GetComponent<Animator>().SetTrigger("Unlock");
+            this.gameObject.SetActive(false);
+        }
     }
 }
